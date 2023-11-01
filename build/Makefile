@@ -2,10 +2,10 @@ include command.mk
 
 SRCS_ASM = \
 	../start.S \
-
+	../memory.S \
 
 SRCS_C = \
-	../os.c \
+	../os_kernel.c \
 	../uart.c \
 	
 
