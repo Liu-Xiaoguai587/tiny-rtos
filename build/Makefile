@@ -3,11 +3,11 @@ include command.mk
 SRCS_ASM = \
 	../start.S \
 	../memory.S \
+	../sys.S \
 
 SRCS_C = \
 	../os_kernel.c \
 	../uart.c \
-	
 
 OBJS = $(SRCS_ASM:.S=.o)
 OBJS += $(SRCS_C:.c=.o)

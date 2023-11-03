@@ -1,20 +1,12 @@
-#ifndef __OS_H__
-#define __OS_H__
+#ifndef __SYS_H__
+#define __SYS_H__
 
 #include"stdint.h"
-#include"platform.h"
-#include"sys.h"
+#include"os.h"
 
-/* uart */
-extern void uart_init();
-extern int uart_putc(char ch);
-extern void uart_puts(char *s);
 
-/* sys */
-extern void sys_switch(struct context *old, struct context *new);
-
-/*
 // saved registers for kernel context switches
+//typedef reg_t uint32_t;
 typedef uint32_t reg_t;
 
 struct context {
@@ -34,6 +26,8 @@ struct context {
     reg_t s9;
     reg_t s10;
     reg_t s11;
-}
-*/
-#endif // !__OS_H__
+};
+
+void sys_switch(struct context *old, struct context *new);
+
+#endif // !__SYS_H__
