@@ -1,4 +1,7 @@
-#include "include/os.h"
+//#include "include/os.h"
+#include "include/stdint.h"
+
+#define UART0 0x10000000L
 
 #define UART_REG(reg) ((volatile uint8_t *)(UART0 + reg))
 
