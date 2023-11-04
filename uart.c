@@ -1,5 +1,5 @@
 //#include "include/os.h"
-#include "include/stdint.h"
+#include "include/libint.h"
 
 #define UART0 0x10000000L
 

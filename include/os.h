@@ -1,7 +1,7 @@
 #ifndef __OS_H__
 #define __OS_H__
 
-#include"stdint.h"
+#include"libint.h"
 #include"platform.h"
 #include"sys.h"
 

@@ -1,8 +1,8 @@
 #ifndef __SYS_H__
 #define __SYS_H__
 
-#include"stdint.h"
-#include"os.h"
+#include"libint.h"
+//#include"os.h"
 
 
 // saved registers for kernel context switches

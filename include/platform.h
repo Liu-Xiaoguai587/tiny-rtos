@@ -3,6 +3,6 @@
 
 #define MAXNUM_CPU 8
 
-#define UART0 0x10000000L
+//#define UART0 0x10000000L
 
 #endif // !__PLATFORN_H__
