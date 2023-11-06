@@ -4,14 +4,16 @@
 #include<stdint.h>
 #include"platform.h"
 #include"sys.h"
+#include"uart.h"
 
 /* uart */
+/*
 extern void uart_init();
 extern int uart_putc(char ch);
 extern void uart_puts(char *s);
-
+*/
 /* sys */
-extern void sys_switch(struct context *old, struct context *new);
+//extern void sys_switch(struct context *old, struct context *new);
 
 /*
 // saved registers for kernel context switches
