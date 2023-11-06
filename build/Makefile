@@ -8,6 +8,9 @@ SRCS_ASM = \
 SRCS_C = \
 	../os_kernel.c \
 	../uart.c \
+	../lib.c \
+	../task.c \
+
 
 OBJS = $(SRCS_ASM:.S=.o)
 OBJS += $(SRCS_C:.c=.o)

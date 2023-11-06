@@ -27,6 +27,6 @@ struct context {
     reg_t s11;
 };
 
-void sys_switch(struct context *old, struct context *new);
+extern void sys_switch(struct context *old, struct context *new);
 
 #endif // !__SYS_H__
