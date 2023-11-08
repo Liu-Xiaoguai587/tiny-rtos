@@ -5,6 +5,7 @@
 #include"platform.h"
 #include"sys.h"
 #include"uart.h"
+#include"task.h"
 
 /* uart */
 /*

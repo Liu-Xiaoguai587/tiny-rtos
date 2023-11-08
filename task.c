@@ -4,11 +4,14 @@ uint8_t task_stack[MAX_TASK][STACK_SIZE];
 struct context ctx_os;
 struct context ctx_tasks[MAX_TASK];
 struct context *ctx_now;
-pid_t taskSize = 0;
+pid_t taskNum = 0;
 
+pid_t retTaskNum() {
+    return taskNum;
+}
 
 pid_t task_create(void (*task)(void)) {
-    pid_t i = taskSize++;
+    pid_t i = taskNum++;
     ctx_tasks[i].ra = (reg_t)task;
     ctx_tasks[i].sp = (reg_t)&task_stack[i][STACK_SIZE - 1];
     return i;

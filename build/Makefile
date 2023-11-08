@@ -10,6 +10,7 @@ SRCS_C = \
 	../uart.c \
 	../lib.c \
 	../task.c \
+	../user.c \
 
 
 OBJS = $(SRCS_ASM:.S=.o)

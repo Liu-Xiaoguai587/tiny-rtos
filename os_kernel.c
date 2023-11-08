@@ -1,13 +1,18 @@
 #include"include/os.h"
 
-#define STACK_SIZE 1024
-
+extern void user_task_init(void);
 
 int os_main() {
     uart_init();
+    user_task_init();
     uart_puts("OS start\n");
 
-    uart_puts("OS end\n");
-    while(1);
+    pid_t current_task = 0;
+    while(1) {
+        task_go(current_task);
+        uart_puts("returned OS\n\n");
+        current_task = (current_task + 1) % retTaskNum();
+    }
+
     return 0;
 }
