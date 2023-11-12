@@ -11,13 +11,14 @@ reg_t trap_handler(reg_t epc, reg_t cause) {
     if(cause & 0x80000000) {
         switch(cause_code) {
             case 3:
-                lib_printf("software interrupt\n");
+                lib_printf("M: software interrupt\n");
                 break;
             case 7:
-                lib_printf("timer interrupt\n");
+                uart_puts("M: timer interrupt\n");
+                timer_handler();
                 break;
             case 11:
-                lib_printf("external interrupt\n");
+                lib_printf("M: external interrupt\n");
                 break;
         }
     } else {

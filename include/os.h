@@ -7,6 +7,7 @@
 #include"uart.h"
 #include"task.h"
 #include"trap.h"
+#include"timer.h"
 
 extern int lib_printf(const char* s, ...);
 /* uart */

@@ -12,6 +12,7 @@ SRCS_C = \
 	../lib.c \
 	../task.c \
 	../user.c \
+	../timer.c \
 
 
 OBJS = $(SRCS_ASM:.S=.o)
