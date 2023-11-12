@@ -6,7 +6,9 @@
 #include"sys.h"
 #include"uart.h"
 #include"task.h"
+#include"trap.h"
 
+extern int lib_printf(const char* s, ...);
 /* uart */
 /*
 extern void uart_init();

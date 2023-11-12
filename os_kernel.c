@@ -2,17 +2,19 @@
 
 extern void user_task_init(void);
 
-int os_main() {
+void os_kernel() {
     uart_init();
-    user_task_init();
+    trap_init();
+
+}
+
+int os_main() {
+    os_kernel();
+
     uart_puts("OS start\n");
+    trap_test();
+    uart_puts("OS end\n");
 
-    pid_t current_task = 0;
-    while(1) {
-        task_go(current_task);
-        uart_puts("returned OS\n\n");
-        current_task = (current_task + 1) % retTaskNum();
-    }
-
+    while(1);
     return 0;
 }

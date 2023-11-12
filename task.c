@@ -4,7 +4,7 @@ uint8_t task_stack[MAX_TASK][STACK_SIZE];
 struct context ctx_os;
 struct context ctx_tasks[MAX_TASK];
 struct context *ctx_now;
-pid_t taskNum = 0;
+static pid_t taskNum = 0;
 
 pid_t retTaskNum() {
     return taskNum;

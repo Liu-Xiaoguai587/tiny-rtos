@@ -46,3 +46,19 @@ sys_switch:
     ctx_load a1
     ret
 
+#==============================================================#
+#                                                              #
+#  void sys_trapVec();                                         #
+#                                                              #
+#==============================================================#
+.global sys_trapVec
+.align 4
+sys_trapVec:
+    #call trip_handler(reg_t epc, reg_t cause);
+    csrr    a0, mepc
+    csrr    a1, mcause
+    call    trap_handler
+    #return a new address of epc
+
+    csrw    mepc, a0
+    mret

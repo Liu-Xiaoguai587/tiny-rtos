@@ -7,6 +7,7 @@ SRCS_ASM = \
 
 SRCS_C = \
 	../os_kernel.c \
+	../trap.c \
 	../uart.c \
 	../lib.c \
 	../task.c \
