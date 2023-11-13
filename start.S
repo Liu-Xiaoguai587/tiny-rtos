@@ -6,6 +6,7 @@
 .text
 
 _start:
+    nop
     csrr    t0, mhartid
     mv      tp, t0
     bnez    t0, park

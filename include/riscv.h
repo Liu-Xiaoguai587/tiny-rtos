@@ -88,7 +88,7 @@ static inline void w_mtvec(reg_t v) {
  *      MIE[7]  Timer Interrupt Enable
  *      MIE[3]  Soft Interrupt Enable
  *      1 => enable
- *      2 => disable
+ *      0 => disable
  *-------------------------------------------------*/
 #define MIE_MEIE    (1 << 11)
 #define MIE_MTIE    (1 << 7)

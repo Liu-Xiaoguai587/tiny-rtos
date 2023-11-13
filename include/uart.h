@@ -26,4 +26,4 @@
 extern void uart_init();
 extern int uart_putc(char ch);
 extern void uart_puts(char *s);
-
+extern void uart_test();

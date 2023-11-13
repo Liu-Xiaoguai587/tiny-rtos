@@ -1,6 +1,9 @@
 #include"include/trap.h"
 
+extern void os_kernel();
+
 void trap_init() {
+    w_mstatus(r_mstatus() | MSTATUS_MIE);
     w_mtvec((reg_t) sys_trapVec);
 }
 
@@ -15,7 +18,12 @@ reg_t trap_handler(reg_t epc, reg_t cause) {
                 break;
             case 7:
                 uart_puts("M: timer interrupt\n");
+                // disable machine timer interrupt
+                w_mie(~((~r_mie()) | MIE_MTIE));
                 timer_handler();
+                ret_pc = (reg_t)task_os;
+                //enable machine timer interrupt
+                w_mie(r_mie() | MIE_MTIE);
                 break;
             case 11:
                 lib_printf("M: external interrupt\n");
@@ -24,6 +32,8 @@ reg_t trap_handler(reg_t epc, reg_t cause) {
     } else {
         lib_printf("Sync, code = %d\n", cause_code);
         //ret_pc += 4;
+        uart_puts("ERROR\n");
+        while(1);
     }
     return ret_pc;
 }

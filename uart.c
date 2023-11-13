@@ -29,3 +29,6 @@ void uart_puts(char *s) {
         uart_putc(*s++);
 }
 
+void uart_test() {
+    uart_puts("-----TEST-----\n");
+}

@@ -4,6 +4,7 @@
 #include"riscv.h"
 #include"trap.h"
 
+#include"uart.h"
 // saved registers for kernel context switches
 //typedef reg_t uint32_t;
 
