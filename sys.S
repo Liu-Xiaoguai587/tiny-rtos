@@ -139,3 +139,15 @@ sys_trapVec:
     reg_load t6
     mret
 
+
+#==============================================================#
+#                                                              #
+#  void atomic_swap();                                         #
+#                                                              #
+#==============================================================#
+.global atomic_swap
+atomic_swap:
+    li      a5, 1
+    amoswap.w.aq a5, a5, (a0)
+    mv a0, a5
+    ret
