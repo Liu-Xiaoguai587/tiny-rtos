@@ -2,7 +2,7 @@
 #define __LOCK_H__
 
 struct lock {
-    volatile tint locked;
+    volatile int locked;
 };
 
 extern void lock_init(struct lock *l);
