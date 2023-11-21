@@ -6,6 +6,7 @@
 
 #define LSR_RX_READY (1 << 0)
 #define LSR_TX_IDLE  (1 << 5)
+#define EOF          0
 
 #define uart_read_reg(reg)      (*(UART_REG(reg)))
 #define uart_write_reg(reg, v)  (*(UART_REG(reg)) = (v))
@@ -26,4 +27,7 @@
 extern void uart_init();
 extern int uart_putc(char ch);
 extern void uart_puts(char *s);
+extern int uart_getc();
+extern char *uart_gets();
+extern void uart_isr();
 extern void uart_test();

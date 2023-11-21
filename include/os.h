@@ -9,6 +9,7 @@
 #include"trap.h"
 #include"timer.h"
 #include"lock.h"
+#include"plic.h"
 
 extern int lib_printf(const char* s, ...);
 /* uart */

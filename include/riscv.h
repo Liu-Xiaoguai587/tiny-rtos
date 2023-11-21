@@ -24,6 +24,12 @@ struct context {
     reg_t s11;
 };
 
+static inline reg_t r_tp() {
+    reg_t v;
+    asm volatile("mv %0, tp" : "=r"(v));
+    return v;
+}
+
 static inline reg_t r_mhartid() {
     reg_t v;
     asm volatile("csrr %0, mhartid" : "=r" (v) );

@@ -6,6 +6,7 @@ void os_start() {
     uart_init();
     trap_init();
     user_init();
+    plic_init();
     timer_init();
 
     uart_puts("OS start\n\n");
@@ -13,6 +14,7 @@ void os_start() {
 
 int os_main() {
     os_start();
+
 
     pid_t current_task = 0;
     while(1) {

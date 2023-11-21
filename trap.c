@@ -7,6 +7,20 @@ void trap_init() {
     w_mtvec((reg_t) sys_trapVec);
 }
 
+void external_handler() {
+    uart_test();
+    int irq = plic_claim();
+    if(irq == UART0_IRQ) {
+        uart_isr();
+    }else if(irq) {
+        lib_printf("unexpected interrupt irq = %d\n", irq);
+    }
+
+    if(irq) {
+        plic_complete(irq);
+    }
+}
+
 reg_t trap_handler(reg_t epc, reg_t cause) {
     reg_t ret_pc = epc;
     reg_t cause_code = cause & 0xfff;
@@ -26,7 +40,8 @@ reg_t trap_handler(reg_t epc, reg_t cause) {
                 w_mie(r_mie() | MIE_MTIE);
                 break;
             case 11:
-                lib_printf("M: external interrupt\n");
+                uart_puts("M: external interrupt\n");
+                external_handler();
                 break;
         }
     } else {
