@@ -6,7 +6,7 @@ void lock_init(struct spin *l) {
 
 void spin_lock(struct spin *l) {
     for(;;) {
-        if(atomic_swap(!l->locked))
+        if(!atomic_swap(l->locked))
             break;
     }
 }

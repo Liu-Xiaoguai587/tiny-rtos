@@ -13,7 +13,7 @@
 #define CLINT_MTIME             (CLINT + 0xBFF8)
 #define interval 10000000
 //timer interrupt
-#define MAX_SOFTWORK_TIMER  10
+#define MAX_SOFTWARE_TIMER  10
 
 struct timer {
     void (*func)(void *arg);
@@ -23,9 +23,9 @@ struct timer {
 
 extern void timer_init();
 extern void timer_handler();
-//softwork interrupt
-extern void softwork_timer_init(void);
-extern struct timer *softwork_timer_create(void (*handler)(void*), void *arg, uint32_t timeout);
-extern void softwork_timer_delete(struct timer *soft_timer);
+//software interrupt
+extern void software_timer_init(void);
+extern struct timer *software_timer_create(void (*handler)(void*), void *arg, uint32_t timeout);
+extern void software_timer_delete(struct timer *software_timer);
 
 #endif // !__TIMER_H__

@@ -7,7 +7,7 @@ void os_start() {
     trap_init();
     user_init();
     plic_init();
-    softwork_timer_init();
+    software_timer_init();
     timer_init();
 
     uart_puts("OS start\n\n");

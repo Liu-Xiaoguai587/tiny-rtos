@@ -12,7 +12,7 @@ _start:
     mv      tp, t0
     bnez    t0, park
 
-    slli    t0, t0, 10              # hart time 1024
+    slli    t0, t0, 10              # hart * 1024
     la      sp, stacks + STACK_SIZE # initzation stack pointer base address
     add     sp, sp, t0              # allocate current hart stack pointer
 

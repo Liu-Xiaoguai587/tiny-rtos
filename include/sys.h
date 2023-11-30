@@ -10,7 +10,6 @@
 
 extern void sys_switch(struct context *old, struct context *new);
 extern void sys_trapVec();
-
-extern void aomic_swap();
+extern int atomic_swap(int l);
 
 #endif // !__SYS_H__

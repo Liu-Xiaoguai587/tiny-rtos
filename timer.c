@@ -25,35 +25,35 @@ static int timer_count = 0;
 void timer_handler() {
     timer_count++;
     lib_printf("timer_handle: %d\n", timer_count);
-    softwork_timer_check();
+    software_timer_check();
     int id = r_mhartid();
     *(reg_t*)CLINT_MTIMECMP(id) = *(reg_t*)CLINT_MTIME + interval;
 }
 
 //
-//  softwork interrupt
+//  software interrupt
 //
-static struct timer timer_list[MAX_SOFTWORK_TIMER];
+static struct timer timer_list[MAX_SOFTWARE_TIMER];
 struct spin softwork_timer_lock;
 
-void softwork_timer_init(void) {
+void software_timer_init(void) {
     lock_init(&softwork_timer_lock);
     struct timer *t = timer_list;
-    for(int i = 0; i < MAX_SOFTWORK_TIMER; i++) {
+    for(int i = 0; i < MAX_SOFTWARE_TIMER; i++) {
         t->func = NULL;
         t->arg = NULL;
         t++;
     }
 }
 
-struct timer *softwork_timer_create(void (*handler)(void*), void *arg, uint32_t timeout) {
+struct timer *software_timer_create(void (*handler)(void*), void *arg, uint32_t timeout) {
     if(handler == NULL || timeout == 0)
         return NULL; 
 
     spin_lock(&softwork_timer_lock);
 
     struct timer *t = &(timer_list[0]);
-    for(int i = 0; i < MAX_SOFTWORK_TIMER; i++) {
+    for(int i = 0; i < MAX_SOFTWARE_TIMER; i++) {
         if(t->func == NULL)
             break;
         
@@ -73,18 +73,18 @@ struct timer *softwork_timer_create(void (*handler)(void*), void *arg, uint32_t 
     return t;
 }
 
-void softwork_timer_delete(struct timer *soft_timer) {
+void software_timer_delete(struct timer *software_timer) {
     spin_lock(&softwork_timer_lock);
 
-    soft_timer->func = NULL;
-    soft_timer->arg = NULL;
+    software_timer->func = NULL;
+    software_timer->arg = NULL;
 
     spin_unlock(&softwork_timer_lock);
 }
 
-void softwork_timer_check() {
+void software_timer_check() {
     struct timer *t = timer_list;
-    for(int i = 0; i < MAX_SOFTWORK_TIMER; i++) {
+    for(int i = 0; i < MAX_SOFTWARE_TIMER; i++) {
         if(t->func == NULL)
             continue;
 
