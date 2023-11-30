@@ -1,19 +1,20 @@
 include command.mk
 
-SRCS_ASM = \
-	../start.S \
-	../memory.S \
-	../sys.S \
+SRCS_ASM = 			\
+	../start.S 		\
+	../memory.S 	\
+	../sys.S 		\
 
-SRCS_C = \
-	../os_kernel.c \
-	../trap.c \
-	../uart.c \
-	../lib.c \
-	../task.c \
-	../user.c \
-	../timer.c \
-	../plic.c \
+SRCS_C = 			\
+	../os_kernel.c 	\
+	../trap.c 		\
+	../uart.c		\
+	../lib.c 		\
+	../task.c 		\
+	../user.c 		\
+	../timer.c 		\
+	../plic.c 		\
+	../lock.c 		\
 
 OBJS = $(SRCS_ASM:.S=.o)
 OBJS += $(SRCS_C:.c=.o)

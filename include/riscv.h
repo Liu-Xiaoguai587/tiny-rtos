@@ -3,6 +3,10 @@
 
 #include<stdint.h>
 
+#ifndef _STDDEF_H
+#define NULL (void*)0
+#endif
+
 typedef uint32_t reg_t;
 
 struct context {

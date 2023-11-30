@@ -1,16 +1,16 @@
 #include"include/lock.h"
 
-void lock_init(struct lock *l) {
+void lock_init(struct spin *l) {
     l->locked = 0;
 }
 
-void lock_acquire(struct lock *l) {
+void spin_lock(struct spin *l) {
     for(;;) {
         if(atomic_swap(!l->locked))
             break;
     }
 }
 
-void lock_free(struct lock *l) {
+void spin_unlock(struct spin *l) {
     l->locked = 0;
 }

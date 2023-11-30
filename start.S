@@ -1,6 +1,7 @@
 #include "include/platform.h"
 
 .equ    STACK_SIZE, 8192
+.equ    MAXNUM_CPU, 8
 
 .global _start
 .text
