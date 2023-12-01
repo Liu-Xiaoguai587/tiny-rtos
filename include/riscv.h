@@ -2,10 +2,8 @@
 #define __RISCV_H__
 
 #include<stdint.h>
+#include<stddef.h>
 
-#ifndef _STDDEF_H
-#define NULL (void*)0
-#endif
 
 typedef uint32_t reg_t;
 

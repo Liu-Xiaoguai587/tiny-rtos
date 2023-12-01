@@ -7,6 +7,7 @@ void os_start() {
     trap_init();
     user_init();
     plic_init();
+    memory_init();
     software_timer_init();
     timer_init();
 

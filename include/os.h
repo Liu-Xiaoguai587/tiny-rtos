@@ -10,6 +10,7 @@
 #include"timer.h"
 #include"lock.h"
 #include"plic.h"
+#include"mem.h"
 
 extern int lib_printf(const char* s, ...);
 /* uart */
